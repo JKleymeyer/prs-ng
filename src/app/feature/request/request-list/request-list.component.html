@@ -1,1 +1,44 @@
-<p>request-list works!</p>
+<div class='component-content'>
+    <div class='lefthalf'>
+        <span class='component-title'>{{title}} </span>
+        <span><a routerLink='/requests/create'>
+                <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+        </span>
+    </div>
+</div>
+<p *ngIf='!request'>Loading...</p>
+<table *ngIf= 'request' class="table table-striped">
+    <tr>
+        <th><a (click)="sortBy('id')">Id</a></th>
+        <th>User</th>
+        <th><a (click)="sortBy('description')">Description</a></th>
+        <th><a (click)="sortBy('justification')">Justification</a></th>
+        <th><a (click)="sortBy('dateNeeded')">Date Needed</a></th>
+        <th><a (click)="sortBy('deliveryMode')">Delivery Mode</a></th>
+        <th><a (click)="sortBy('status')">Status</a></th>
+        <th><a (click)="sortBy('total')">Total</a></th>
+        <th><a (click)="sortBy('submittedDate')">Submitted Date</a></th>
+        <th><a (click)="sortBy('reasonForRejection')">Reason For Rejection</a></th>
+        <th>Action</th>
+    </tr>
+    <tbody>
+        <tr *ngFor="let r of request">
+            <td>{{r.id}}</td>
+            <td>{{r.user.firstName}} {{r.user.lastName}}</td>
+            <td>{{r.description}}</td>
+            <td>{{r.justification}}</td>
+            <td>{{r.dateNeeded}}</td>
+            <td>{{r.deliveryMode}}</td>
+            <td>{{r.status}}</td>
+            <td>{{r.total}}</td>
+            <td>{{r.submittedDate}}</td>
+            <td>{{r.reasonForRejection}}</td>
+            <td><a routerLink='/requests/detail/{{r.id}}'><img src='assets/details.png' width='20' height='20'
+                        title='Detail'></a>
+                |
+                <a routerLink='/requests/edit/{{r.id}}'><img src='assets/pencil-icon.png' width='20' height='20'
+                        title='Edit'></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
