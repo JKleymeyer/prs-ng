@@ -10,7 +10,7 @@ import { BaseComponent } from '../../base/base/base.component';
   styleUrls: ['./vendor-list.component.css']
 })
 export class VendorListComponent extends BaseComponent implements OnInit {
-  title: string = "User List";
+  title: string = "Vendor List";
   vendors: Vendor[] = [];
   jr: JsonResponse;
 
