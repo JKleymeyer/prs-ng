@@ -28,6 +28,12 @@ export class UserService {
     return this.http.delete(this.url + id) as Observable<JsonResponse>;
   }
 
+  update (request: Request): Observable<JsonResponse> {
+    console.log("calling request update...");
+    console.log("request:",request);
+    return this.http.put(this.url, request) as Observable<JsonResponse>;
+  }
+
   login(u: User): Observable<JsonResponse> {
     return this.http.post(this.url + "/login", u) as Observable<JsonResponse>;
   }

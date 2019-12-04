@@ -32,7 +32,7 @@ export class ProductEditComponent implements OnInit {
       this.vendor = jr.data as Vendor[];
     });
   }
-  save(): void {
+  update(): void {
     this.productSvc.save(this.product).subscribe(jresp => {
       console.log(this.product);
       this.router.navigateByUrl("/products/list");

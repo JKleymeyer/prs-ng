@@ -26,7 +26,7 @@ export class VendorEditComponent implements OnInit {
     });
   }
 
-  save(): void {
+  update(): void {
     this.vendorSvc.save(this.vendor).subscribe(jr => {
       this.router.navigateByUrl("/vendors/list");
     });

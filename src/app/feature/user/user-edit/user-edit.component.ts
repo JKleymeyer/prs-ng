@@ -26,7 +26,7 @@ export class UserEditComponent implements OnInit {
     });
   }
 
-  save(): void {
+  update(): void {
     this.userSvc.save(this.user).subscribe(jr=>{
       this.router.navigateByUrl("/users/list");
     });
