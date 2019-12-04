@@ -16,8 +16,7 @@ export class UserDetailComponent implements OnInit {
 
   constructor(private userSvc: UserService,
     private router: Router,
-    private route: ActivatedRoute,
-    private loc: Location) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(parms => this.id = parms['id']);

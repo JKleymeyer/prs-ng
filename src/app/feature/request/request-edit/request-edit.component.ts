@@ -5,6 +5,7 @@ import { RequestService } from 'src/app/service/request.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 import { Location } from '@angular/common';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-request-edit',
@@ -21,7 +22,8 @@ export class RequestEditComponent implements OnInit {
     private userSvc: UserService,
     private router: Router,
     private route: ActivatedRoute,
-    private loc : Location) { }
+    private loc : Location,
+    protected sysSvc: SystemService) { }
 
   ngOnInit() {
     this.route.params.subscribe(parms=> this.id = parms['id']);
@@ -40,7 +42,10 @@ export class RequestEditComponent implements OnInit {
   }
   backClicked(){
     this.loc.back();
+  }
 
+  compUser(a: User, b: User): boolean{
+    return a && b && a.id === b.id;
   }
 
 }

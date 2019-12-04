@@ -14,14 +14,11 @@ import { Location } from '@angular/common';
 export class ProductDetailComponent implements OnInit {
   title:string = "Product Detail";
   product: Product = new Product();
-  vendor: Vendor [] = [];
   id: number = 0;
 
   constructor(private productSvc: ProductService,
-    private vendorSvc: VendorService,
     private router: Router,
-    private route: ActivatedRoute,
-    private loc: Location) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(parms => this.id = parms['id']);

@@ -16,6 +16,8 @@ import { ProductDetailComponent } from './feature/product/product-detail/product
 import { UserLoginComponent } from './feature/user/user-login/user-login.component';
 import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
+import { RequestDetailComponent } from './feature/request/request-detail/request-detail.component';
+import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
 
 
 const routes: Routes = [
@@ -37,6 +39,8 @@ const routes: Routes = [
   {path: 'requests/list', component: RequestListComponent},
   {path: 'requests/create', component: RequestCreateComponent},
   {path: 'requests/edit/:id', component: RequestEditComponent},
+  {path: 'requests/detail/:id', component: RequestDetailComponent},
+  {path: 'requests/request-lines/:id', component: RequestLinesComponent},
   {path: '**', component: UserListComponent}
 ];
 
