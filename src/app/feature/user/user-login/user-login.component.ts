@@ -13,15 +13,44 @@ import { Router } from '@angular/router';
 export class UserLoginComponent extends BaseComponent implements OnInit {
   message: string = "";
   user: User = new User();
-  
+
 
   constructor(private userSvc: UserService,
-              protected sysSvc:SystemService,
-              private router: Router) { 
-      super (sysSvc);
-    }
+    protected sysSvc: SystemService,
+    private router: Router) {
+    super(sysSvc);
+  }
 
   ngOnInit() {
+    //defaulting username and password for testing purposes
+    this.user.userName = 'Lbell';
+    this.user.password = 'bellsrock!';
+
+    //initialize system user to null
+    this.sysSvc.loggedInUser = null;
+  }
+  login() {
+    console.log("login called for user:", this.user);
+    this.userSvc.login(this.user)
+      .subscribe(jr => {
+        console.log("jr:", jr);
+        if (jr.errors == null) {
+          if (jr.data == null) {
+            // no error but still no user???
+            this.message = "Invalid Username/Password combo.  Retry";
+          }
+          else {
+            // should be g2g!
+            this.user = jr.data as User;
+            this.sysSvc.loggedInUser = this.user;
+            //good login, navigate to home/welcome page
+            this.router.navigateByUrl('/users/list');
+          }
+        }
+        else {
+          this.message = "Invalid Username/Password combo.  Retry";
+        }
+      });
   }
 
 }

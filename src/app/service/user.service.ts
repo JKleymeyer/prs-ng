@@ -8,7 +8,7 @@ import { User } from '../model/user.class';
   providedIn: 'root'
 })
 export class UserService {
-  url: string ="http://localhost:8080/users/";
+  url: string = "http://localhost:8080/users/";
 
   constructor(private http: HttpClient) { }
 
@@ -26,6 +26,10 @@ export class UserService {
 
   delete(id: number): Observable<JsonResponse> {
     return this.http.delete(this.url + id) as Observable<JsonResponse>;
+  }
+
+  login(u: User): Observable<JsonResponse> {
+    return this.http.post(this.url + "/login", u) as Observable<JsonResponse>;
   }
 
 }

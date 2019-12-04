@@ -23,8 +23,7 @@ export class ProductCreateComponent implements OnInit {
 
   ngOnInit() {
     this.vendorSvc.list().subscribe(jr =>{
-      this.vendor = jr.data as Vendor[];  
-      console.log("movies: ", this.vendor);
+      this.vendor = jr.data as Vendor[];
     });
   }
 

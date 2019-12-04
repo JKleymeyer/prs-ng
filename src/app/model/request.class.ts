@@ -2,7 +2,7 @@ import { User } from './user.class';
 
 export class Request {
     id: number;
-    userId: User;
+    user: User;
     description: string;
     justification: string;
     dateNeeded: Date;
@@ -12,11 +12,11 @@ export class Request {
     submittedDate: Date;
     reasonForRejection: string;
 
-    constructor(id: number = 0, userId: User = new User(), description: string = "", 
+    constructor(id: number = 0, user: User = new User(), description: string = "", 
     justification:string = "", dateNeeded:Date = null, deliveryMode:string = "",
     status: string = "", total: string = "", submittedDate: Date = null, reasonForRejection: string = null) {
         this.id=id;
-        this.userId=userId;
+        this.user=user;
         this.description= description;
         this.justification=justification;
         this.dateNeeded=dateNeeded;
