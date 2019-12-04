@@ -1,7 +1,12 @@
 <nav>
     <ul>
+        <a class="navbar-brand" href="users/list">
+            <img src="assets/hop.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+            Brewery PRS
+        </a>
         <li *ngFor="let mi of menuItems" title="{{mi.toolTip}}">
-           <a routerLink= "{{mi.href}}">{{mi.display}}</a>
+            <a routerLink="{{mi.href}}">{{mi.display}}</a>
+
         </li>
     </ul>
 </nav>

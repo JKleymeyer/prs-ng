@@ -12,7 +12,7 @@
                     User Name:
                 </td>
                 <td>
-                    <input [(ngModel)]="user.userName" class="rounded" type="text">
+                    <input [(ngModel)]="user.userName" class="rounded" type="text" maxlength="20">
                 </td>
             </tr>
             <tr>
@@ -20,7 +20,7 @@
                     Password:
                 </td>
                 <td>
-                    <input [(ngModel)]="user.password" class="rounded" type="text">
+                    <input [(ngModel)]="user.password" class="rounded" type="text" maxlength="10">
                 </td>
             </tr>
             <tr>
@@ -28,7 +28,7 @@
                     First Name:
                 </td>
                 <td>
-                    <input [(ngModel)]="user.firstName" class="rounded" type="text">
+                    <input [(ngModel)]="user.firstName" class="rounded" type="text" maxlength="20">
                 </td>
             </tr>
             <tr>
@@ -36,7 +36,7 @@
                     Last Name:
                 </td>
                 <td>
-                    <input [(ngModel)]="user.lastName" class="rounded" type="text">
+                    <input [(ngModel)]="user.lastName" class="rounded" type="text" maxlength="20">
                 </td>
             </tr>
             <tr>
@@ -44,7 +44,7 @@
                     Phone Number:
                 </td>
                 <td>
-                    <input [(ngModel)]="user.phoneNumber" class="rounded" type="text">
+                    <input [(ngModel)]="user.phoneNumber" class="rounded" type="text" maxlength="12">
                 </td>
             </tr>
             <tr>
@@ -52,7 +52,7 @@
                     Email:
                 </td>
                 <td>
-                    <input [(ngModel)]="user.email" class="rounded" type="text">
+                    <input [(ngModel)]="user.email" class="rounded" type="text" maxlength="75">
                 </td>
             </tr>
             <tr>
@@ -73,7 +73,7 @@
             </tr>
         </table>
     </main>
-    <span><button (click)="save()" class="btn btn-sm btn-primary">Save</button></span>
+    <span><button (click)="save()" class="button">Save</button></span>
     |
-    <span><button (click)="backClicked()" class="btn btn-sm btn-primary">Cancel</button></span>
+    <span><button (click)="backClicked()" class="button">Cancel</button></span>
 </div>

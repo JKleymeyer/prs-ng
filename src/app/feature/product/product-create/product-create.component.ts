@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./product-create.component.css']
 })
 export class ProductCreateComponent implements OnInit {
-  title: string = "Producte Create";
+  title: string = "Product Create";
   product: Product = new Product();
   vendor: Vendor[] = [];
 
