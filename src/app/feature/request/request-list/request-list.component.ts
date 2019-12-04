@@ -3,6 +3,7 @@ import { Request } from 'selenium-webdriver/http';
 import { RequestService } from 'src/app/service/request.service';
 import { BaseComponent } from '../../base/base/base.component';
 import { JsonResponse } from 'src/app/model/json-response';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-request-list',
@@ -14,8 +15,9 @@ export class RequestListComponent extends BaseComponent implements OnInit {
     request: Request [] = [];
     jr: JsonResponse;
 
-  constructor(private requestSvc: RequestService,) {
-    super();
+  constructor(private requestSvc: RequestService,
+    protected sysSvc: SystemService) {
+    super(sysSvc);
    }
 
   ngOnInit() {

@@ -3,6 +3,7 @@ import { BaseComponent } from '../../base/base/base.component';
 import { User } from 'src/app/model/user.class';
 import { JsonResponse } from 'src/app/model/json-response';
 import { UserService } from 'src/app/service/user.service';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-user-list',
@@ -14,8 +15,9 @@ export class UserListComponent extends BaseComponent implements OnInit {
   users: User[] = [];
   jr: JsonResponse;
 
-  constructor(private userSvc: UserService) {
-    super();
+  constructor(private userSvc: UserService,
+    protected sysSvc: SystemService) {
+    super(sysSvc);
   }
 
   ngOnInit() {

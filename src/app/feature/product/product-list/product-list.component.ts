@@ -3,6 +3,7 @@ import { Product } from 'src/app/model/product.class';
 import { JsonResponse } from 'src/app/model/json-response';
 import { ProductService } from 'src/app/service/product.service';
 import { BaseComponent } from '../../base/base/base.component';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-product-list',
@@ -13,8 +14,9 @@ export class ProductListComponent extends BaseComponent implements OnInit {
   title: string = "Product List";
   product: Product[] = [];
 
-  constructor(private productSvc: ProductService) { 
-    super ();
+  constructor(private productSvc: ProductService,
+    protected sysSvc: SystemService) { 
+    super (sysSvc);
   }
 
 
