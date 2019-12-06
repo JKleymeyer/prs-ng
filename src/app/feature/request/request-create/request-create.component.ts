@@ -16,10 +16,8 @@ import { BaseComponent } from '../../base/base/base.component';
 export class RequestCreateComponent extends BaseComponent implements OnInit {
   title: string = "Request Create";
   request: Request = new Request();
-  user: User[] = [];
 
   constructor(private requestSvc:RequestService,
-    private userSvc: UserService,
     private router: Router,
     private loc: Location,
     protected sysSvc: SystemService) {

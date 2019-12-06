@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { JsonResponse } from '../model/json-response';
-import { LineItems } from '../model/line-items.class';
+import { LineItem } from '../model/line-item.class';
 
 @Injectable({
   providedIn: 'root'
@@ -20,15 +20,19 @@ export class LineItemService {
     return this.http.get(this.url + id) as Observable<JsonResponse>;
   }
 
-  save (lineItem: LineItems): Observable<JsonResponse> {
+  save (lineItem: LineItem): Observable<JsonResponse> {
     return this.http.post(this.url, lineItem) as Observable<JsonResponse>;
   }
 
-  update (lineItem: LineItems): Observable<JsonResponse> {
+  update (lineItem: LineItem): Observable<JsonResponse> {
     return this.http.put(this.url, lineItem) as Observable<JsonResponse>;
   }
 
   delete(id: number): Observable<JsonResponse> {
     return this.http.delete(this.url + id) as Observable<JsonResponse>;
+  }
+
+  listLineItemById(id: number): Observable<JsonResponse> {
+    return this.http.get(this.url + "/lines-for-request/" + id) as Observable<JsonResponse>;
   }
 }
