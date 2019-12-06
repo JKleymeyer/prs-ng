@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { LineItem } from 'src/app/model/line-item.class';
 import { Request } from 'src/app/model/request.class';
-import { SystemService } from 'src/app/service/system.service';
-import { BaseComponent } from '../../base/base/base.component';
 import { RequestService } from 'src/app/service/request.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LineItem } from 'src/app/model/line-item.class';
+import { SystemService } from 'src/app/service/system.service';
 import { LineItemService } from 'src/app/service/line-item.service';
+import { BaseComponent } from '../../base/base/base.component';
 
 @Component({
-  selector: 'app-request-lines',
-  templateUrl: './request-lines.component.html',
-  styleUrls: ['./request-lines.component.css']
+  selector: 'app-request-approve',
+  templateUrl: './request-approve.component.html',
+  styleUrls: ['./request-approve.component.css']
 })
-export class RequestLinesComponent extends BaseComponent implements OnInit {
-  title: string = "Request List";
+export class RequestApproveComponent extends BaseComponent implements OnInit {
+  title: string = "Review for approval";
   title2: string = "Line Items";
   request: Request = new Request;
   lineItem: LineItem[] = [];
@@ -24,15 +24,12 @@ export class RequestLinesComponent extends BaseComponent implements OnInit {
     protected sysSvc: SystemService,
     private lineItemSvc: LineItemService,
     private router: Router) {
-    super(sysSvc)
-  }
+      super (sysSvc)
+     }
 
   ngOnInit() {
     super.ngOnInit();
     this.route.params.subscribe(parms => this.id = parms['id']);
-    this.getLineItem();
-  }
-  getLineItem() {
     this.requestSvc.get(this.id).subscribe(jr => {
       this.request = jr.data as Request;
     });
@@ -41,14 +38,16 @@ export class RequestLinesComponent extends BaseComponent implements OnInit {
       this.lineItem = jr.data as LineItem[];
     });
   }
-  delete(lineId: number) {
-    this.lineItemSvc.delete(lineId).subscribe(jr => {
-      this.getLineItem();
-    });
+
+  approve(){
+      this.requestSvc.requestApprove(this.request).subscribe(jresp => {
+        this.router.navigateByUrl("/requests/review");
+      });
   }
-  submitForReview(){
-    this.requestSvc.submitRequest(this.request).subscribe(jresp => {
-      this.router.navigateByUrl("/requests/list");
+  reject(){
+    this.requestSvc.requestReject(this.request).subscribe(jresp => {
+      this.router.navigateByUrl("/requests/review");
     });
-  }
+}
+
 }
