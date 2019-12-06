@@ -32,7 +32,6 @@
         </span>
     </div>
 </div>
-<p *ngIf='!lineItem'>No line items yet. Please cerate a new one!</p>
 <table *ngIf='lineItem' class="table table-striped">
     <tr>
         <th><a>Id</a></th>
@@ -42,6 +41,7 @@
         <th><a>Line Total</a></th>
         <th><a>Action</a></th>
     </tr>
+<p *ngIf='!lineItem || lineItem.length == 0'><td colspan="7" style="background-color:lightcoral;"> No line items yet. Please create a new one!</td></p>
     <tbody>
         <tr *ngFor="let l of lineItem">
             <td>{{l.id}}</td>

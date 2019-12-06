@@ -25,11 +25,10 @@ export class RequestReviewComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
-    this.route.params.subscribe(parms => this.loggedInUser = parms['id']);
     this.getRequestInReviewStatus();
   }
   getRequestInReviewStatus(){
-      this.requestSvc.requestInReviewStatus(this.id).subscribe(jr => {
+      this.requestSvc.requestInReviewStatus(this.loggedInUser.id).subscribe(jr => {
         this.request = jr.data as Request[];
       });
   }

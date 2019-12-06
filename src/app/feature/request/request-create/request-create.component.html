@@ -45,7 +45,12 @@
                     Delivery Mode:
                 </td>
                 <td>
-                    <input [(ngModel)]="request.deliveryMode" class="rounded" type="text" maxlength="25">
+                    <select [(ngModel)]="request.deliveryMode" class="rounded">
+                        <option value="UPS">UPS</option>
+                        <option value="FedEx">FedEx</option>
+                        <option value="Coors Light Bullet Train">Coors Light Bullet Train</option>
+                        <option value="USPS">USPS</option>
+                    </select>
                 </td>
             </tr>
         </table>
