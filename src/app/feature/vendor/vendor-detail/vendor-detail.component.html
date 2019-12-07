@@ -11,7 +11,7 @@
                     Code:
                 </td>
                 <td>
-                    <input [(ngModel)]="vendor.code" class="rounded" type="text">
+                    <input [(ngModel)]="vendor.code" class="rounded" type="text" disabled>
                 </td>
             </tr>
             <tr>
@@ -19,7 +19,7 @@
                     Name:
                 </td>
                 <td>
-                    <input [(ngModel)]="vendor.name" class="rounded" type="text">
+                    <input [(ngModel)]="vendor.name" class="rounded" type="text" disabled>
                 </td>
             </tr>
             <tr>
@@ -27,7 +27,7 @@
                     Address:
                 </td>
                 <td>
-                    <input [(ngModel)]="vendor.address" class="rounded" type="text">
+                    <input [(ngModel)]="vendor.address" class="rounded" type="text" disabled>
                 </td>
             </tr>
             <tr>
@@ -35,7 +35,7 @@
                     City:
                 </td>
                 <td>
-                    <input [(ngModel)]="vendor.city" class="rounded" type="text">
+                    <input [(ngModel)]="vendor.city" class="rounded" type="text" disabled>
                 </td>
             </tr>
             <tr>
@@ -43,7 +43,7 @@
                     State:
                 </td>
                 <td>
-                    <input [(ngModel)]="vendor.state" class="rounded" type="text">
+                    <input [(ngModel)]="vendor.state" class="rounded" type="text" disabled>
                 </td>
             </tr>
             <tr>
@@ -51,7 +51,7 @@
                     Zip Code:
                 </td>
                 <td>
-                    <input [(ngModel)]="vendor.zip" class="rounded" type="text">
+                    <input [(ngModel)]="vendor.zip" class="rounded" type="text" disabled>
                 </td>
             </tr>
             <tr>
@@ -59,7 +59,7 @@
                     Phone Number:
                 </td>
                 <td>
-                    <input [(ngModel)]="vendor.phoneNumber" class="rounded" type="text">
+                    <input [(ngModel)]="vendor.phoneNumber" class="rounded" type="text" disabled>
                 </td>
             </tr>
             <tr>
@@ -67,13 +67,13 @@
                     Email:
                 </td>
                 <td>
-                    <input [(ngModel)]="vendor.email" class="rounded" type="text">
+                    <input [(ngModel)]="vendor.email" class="rounded" type="text" disabled>
                 </td>
             </tr>
         </table>
     </main>
     <span>
-        <span><a routerLink="/vendors/edit/{{vendor.id}}" class="btn btn-sm btn-warning">Edit</a></span>
-        <span> | <button (click)="delete()" class="btn btn-sm btn-danger">Delete</button></span>
+        <span><a routerLink="/vendors/edit/{{vendor.id}}" class="button1">Edit</a></span>
+        <span> | <button (click)="delete()" class="button2">Delete</button></span>
     </span>
 </div>

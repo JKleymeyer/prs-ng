@@ -20,12 +20,12 @@
         <th>Action</th>
     </tr>
     <tbody>
-        <tr *ngFor="let p of product">
+        <tr *ngFor="let p of product | sort:sortCriteria:sortOrder">
             <td>{{p.id}}</td>
             <td>{{p.vendor.name}}</td>
             <td>{{p.partNumber}}</td>
             <td>{{p.name}}</td>
-            <td>${{p.price}}</td>
+            <td>{{p.price | currency }}</td>
             <td>{{p.unit}}</td>
             <td>{{p.photoPath}}</td>
             <td><a routerLink='/products/detail/{{p.id}}'><img src='assets/details.png' width='20' height='20'
