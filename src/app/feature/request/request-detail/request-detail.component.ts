@@ -4,6 +4,7 @@ import { Request } from 'src/app/model/request.class';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 import { RequestService } from 'src/app/service/request.service';
+import { JsonResponse } from 'src/app/model/json-response';
 
 @Component({
   selector: 'app-request-detail',
@@ -14,6 +15,7 @@ export class RequestDetailComponent implements OnInit {
   title: string = "Request Detail";
   request: Request = new Request ();
   id: number = 0;
+  jr: JsonResponse;
 
   constructor(private router: Router,
     private route: ActivatedRoute,

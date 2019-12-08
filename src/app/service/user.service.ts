@@ -29,8 +29,6 @@ export class UserService {
   }
 
   update (request: Request): Observable<JsonResponse> {
-    console.log("calling request update...");
-    console.log("request:",request);
     return this.http.put(this.url, request) as Observable<JsonResponse>;
   }
 
