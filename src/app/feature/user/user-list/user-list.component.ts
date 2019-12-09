@@ -24,7 +24,6 @@ export class UserListComponent extends BaseComponent implements OnInit {
     super.ngOnInit();
     this.userSvc.list().subscribe(jr => {
       this.users = jr.data as User[];
-      console.log(this.users);
     });
   }
 

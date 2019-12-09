@@ -19,7 +19,7 @@
         <th><a (click)="sortBy('zip')">Zip</a></th>
         <th><a (click)="sortBy('phoneNumber')">Phone Number</a></th>
         <th><a (click)="sortBy('email')">Email</a></th>
-        <th>Action</th>
+        <th *ngIf='isAdmin || isReviewer'>Action</th>
     </tr>
     <tbody>
         <tr *ngFor="let v of vendors | sort:sortCriteria:sortOrder">
@@ -32,7 +32,7 @@
             <td>{{v.zip}}</td>
             <td>{{v.phoneNumber}}</td>
             <td>{{v.email}}</td>
-            <td><a routerLink='/vendors/detail/{{v.id}}'><img src='assets/details.png' width='20' height='20'
+            <td *ngIf='isAdmin || isReviewer'><a routerLink='/vendors/detail/{{v.id}}'><img src='assets/details.png' width='20' height='20'
                         title='Detail'></a>
                 |
                 <a routerLink='/vendors/edit/{{v.id}}'><img src='assets/pencil-icon.png' width='20' height='20'

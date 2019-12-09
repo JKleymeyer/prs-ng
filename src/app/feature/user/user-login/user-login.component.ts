@@ -22,10 +22,10 @@ export class UserLoginComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
+    super.ngOnInit();
     //defaulting username and password for testing purposes
     this.user.userName = 'Lbell';
     this.user.password = 'bellsrock!';
-
     //initialize system user to null
     this.sysSvc.loggedInUser = null;
   }
@@ -33,7 +33,6 @@ export class UserLoginComponent extends BaseComponent implements OnInit {
     console.log("login called for user:", this.user);
     this.userSvc.login(this.user)
       .subscribe(jr => {
-        console.log("jr:", jr);
         if (jr.errors == null) {
           if (jr.data == null) {
             // no error but still no user???

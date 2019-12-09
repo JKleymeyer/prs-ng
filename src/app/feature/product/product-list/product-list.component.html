@@ -17,7 +17,7 @@
         <th><a (click)="sortBy('price')">Price</a></th>
         <th><a (click)="sortBy('unit')">Unit</a></th>
         <th><a (click)="sortBy('photoPath')">Photo Path</a></th>
-        <th>Action</th>
+        <th *ngIf='isAdmin || isReviewer'>Action</th>
     </tr>
     <tbody>
         <tr *ngFor="let p of product | sort:sortCriteria:sortOrder">
@@ -28,7 +28,7 @@
             <td>{{p.price | currency }}</td>
             <td>{{p.unit}}</td>
             <td>{{p.photoPath}}</td>
-            <td><a routerLink='/products/detail/{{p.id}}'><img src='assets/details.png' width='20' height='20'
+            <td *ngIf='isAdmin || isReviewer'><a routerLink='/products/detail/{{p.id}}'><img src='assets/details.png' width='20' height='20'
                         title='Detail'></a>
                 |
                 <a routerLink='/products/edit/{{p.id}}'><img src='assets/pencil-icon.png' width='20' height='20'
