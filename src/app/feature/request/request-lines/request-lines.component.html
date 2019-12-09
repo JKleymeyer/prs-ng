@@ -41,7 +41,7 @@
         <th><a>Line Total</a></th>
         <th><a>Action</a></th>
     </tr>
-<p *ngIf='!lineItem || lineItem.length == 0'><td colspan="7" style="background-color:lightcoral;"> No line items yet. Please create a new one!</td></p>
+<td *ngIf='!lineItem || lineItem.length == 0' colspan="7" style="background-color:lightcoral; text-align: center;"> No line items yet. Please create a new one!</td>
     <tbody>
         <tr *ngFor="let l of lineItem">
             <td>{{l.id}}</td>
@@ -52,7 +52,7 @@
             <td><a routerLink='/line-items/edit/{{l.id}}'><img src='assets/pencil-icon.png' width='20' height='20'
                         title='Edit'></a>
                 |
-                <span> <a (click)="delete(l.id)" onclick="location.reload();"><img src='assets/delete.jpg' width='20' height='20'
+                <span> <a (click)="delete(l.id)"><img src='assets/delete.jpg' width='20' height='20'
                     title='Delete'></a></span>
             </td>
         </tr>

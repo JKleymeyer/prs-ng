@@ -13,7 +13,7 @@
         <th><a (click)="sortBy('total')">Total</a></th>
         <th>Action</th>
     </tr>
-    <p *ngIf='!request || request.length == 0'><td colspan="6"> No request to review.</td></p>
+    <td *ngIf='!request || request.length == 0' colspan="6" align="center"> No request to review.</td>
     <tbody>
         <tr *ngFor="let r of request | sort:sortCriteria:sortOrder">
             <td>{{r.id}}</td>
