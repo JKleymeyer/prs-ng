@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent extends BaseComponent implements OnInit {
-  title: string = "Welcome to the Brewery Request System";
+  title: string = "Welcome to the Brewery Request System,";
   user: User = new User;
 
   constructor(protected sysSvc:SystemService) { 
