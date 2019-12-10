@@ -12,9 +12,9 @@ import { Location } from '@angular/common';
   styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent implements OnInit {
-  title:string = "Product Edit";
+  title: string = "Product Edit";
   product: Product = new Product();
-  vendor: Vendor [] = [];
+  vendor: Vendor[] = [];
   id: number = 0;
 
   constructor(private vendorSvc: VendorService,
@@ -24,24 +24,23 @@ export class ProductEditComponent implements OnInit {
     private loc: Location) { }
 
   ngOnInit() {
-    this.route.params.subscribe(parms=> this.id = parms['id']);
-    this. productSvc.get(this.id).subscribe(jr=>{
-      this.product=jr.data as Product;
+    this.route.params.subscribe(parms => this.id = parms['id']);
+    this.productSvc.get(this.id).subscribe(jr => {
+      this.product = jr.data as Product;
     });
-    this.vendorSvc.list().subscribe(jr =>{
+    this.vendorSvc.list().subscribe(jr => {
       this.vendor = jr.data as Vendor[];
     });
   }
   update(): void {
     this.productSvc.save(this.product).subscribe(jresp => {
-      console.log(this.product);
       this.router.navigateByUrl("/products/list");
     });
   }
-  backClicked(){
+  backClicked() {
     this.loc.back();
   }
-  compVendor(a: Vendor, b: Vendor): boolean{
+  compVendor(a: Vendor, b: Vendor): boolean {
     return a && b && a.id === b.id;
   }
 }

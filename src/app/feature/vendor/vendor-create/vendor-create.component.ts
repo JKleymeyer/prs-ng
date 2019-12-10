@@ -21,13 +21,13 @@ export class VendorCreateComponent implements OnInit {
   }
 
   save(): void {
-    this.vendorSvc.save(this.vendor).subscribe(jr=>{
+    this.vendorSvc.save(this.vendor).subscribe(jr => {
       this.router.navigateByUrl("/vendors/list");
-  });
+    });
 
-}
-backClicked(){
-  this.loc.back();
-}
+  }
+  backClicked() {
+    this.loc.back();
+  }
 
 }

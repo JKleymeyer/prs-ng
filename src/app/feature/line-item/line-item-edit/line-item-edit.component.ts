@@ -14,7 +14,7 @@ import { ProductService } from 'src/app/service/product.service';
 export class LineItemEditComponent implements OnInit {
   title: string = "Line Item Edit";
   lineItem: LineItem = new LineItem;
-  product: Product [] = [];
+  product: Product[] = [];
   id: number = 0;
 
   constructor(private lineItemSvc: LineItemService,
@@ -25,26 +25,25 @@ export class LineItemEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(parms => this.id = parms['id']);
-    this.lineItemSvc.get(this.id).subscribe(jr=>{
+    this.lineItemSvc.get(this.id).subscribe(jr => {
       this.lineItem = jr.data as LineItem;
     });
-    this.productSvc.list().subscribe(jr =>{
+    this.productSvc.list().subscribe(jr => {
       this.product = jr.data as Product[];
     });
   }
 
   update(): void {
-    //not going back to the correct url
-    this.lineItemSvc.save(this.lineItem).subscribe(jr=>{
-      this.router.navigateByUrl("/requests/request-lines/"+this.lineItem.request.id);
+    this.lineItemSvc.save(this.lineItem).subscribe(jr => {
+      this.router.navigateByUrl("/requests/request-lines/" + this.lineItem.request.id);
     });
   }
 
-  compProduct(a: Product, b: Product): boolean{
+  compProduct(a: Product, b: Product): boolean {
     return a && b && a.id === b.id;
   }
 
-  backClicked(){
+  backClicked() {
     this.loc.back();
   }
 

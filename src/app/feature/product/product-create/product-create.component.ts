@@ -22,19 +22,18 @@ export class ProductCreateComponent implements OnInit {
     private loc: Location) { }
 
   ngOnInit() {
-    this.vendorSvc.list().subscribe(jr =>{
+    this.vendorSvc.list().subscribe(jr => {
       this.vendor = jr.data as Vendor[];
     });
   }
 
   save(): void {
     this.productSvc.save(this.product).subscribe(jresp => {
-      console.log(this.product);
       this.router.navigateByUrl("/products/list");
     });
   }
 
-  backClicked(){
+  backClicked() {
     this.loc.back();
   }
 

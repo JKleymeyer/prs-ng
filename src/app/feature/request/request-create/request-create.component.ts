@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Request } from 'src/app/model/request.class';
-import { User } from 'src/app/model/user.class';
 import { RequestService } from 'src/app/service/request.service';
-import { UserService } from 'src/app/service/user.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { SystemService } from 'src/app/service/system.service';
@@ -25,13 +23,11 @@ export class RequestCreateComponent extends BaseComponent implements OnInit {
      }
 
   ngOnInit() {
-    this.request.user = this.sysSvc.loggedInUser;
-    console.log(this.request);
+    this.request.user = this.sysSvc.loggedInUser;;
   }
 
   save(): void {
     this.requestSvc.save(this.request).subscribe(jresp => {
-      console.log(this.request);
       this.router.navigateByUrl("/requests/list");
     });
   }

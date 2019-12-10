@@ -11,14 +11,14 @@ import { SystemService } from 'src/app/service/system.service';
   styleUrls: ['./request-list.component.css']
 })
 export class RequestListComponent extends BaseComponent implements OnInit {
-    title: string = "Request List";
-    request: Request [] = [];
-    jr: JsonResponse;
+  title: string = "Request List";
+  request: Request[] = [];
+  jr: JsonResponse;
 
   constructor(private requestSvc: RequestService,
     protected sysSvc: SystemService) {
     super(sysSvc);
-   }
+  }
 
   ngOnInit() {
     super.ngOnInit();

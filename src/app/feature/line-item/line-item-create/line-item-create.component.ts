@@ -40,7 +40,7 @@ export class LineItemCreateComponent implements OnInit {
   save(): void {
     this.lineItem.request = this.request;
     this.lineItemsSvc.save(this.lineItem).subscribe(jr => {
-      this.router.navigateByUrl("/requests/request-lines/"+this.id);
+      this.router.navigateByUrl("/requests/request-lines/" + this.id);
     });
   }
   backClicked() {

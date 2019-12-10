@@ -7,5 +7,5 @@ export class MenuItem {
         this.display = display;
         this.href = href;
         this.tooltip = tooltip;
-}
+    }
 }

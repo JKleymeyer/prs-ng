@@ -26,7 +26,7 @@ export class BaseComponent implements OnInit {
   }
 
   sortBy(column: string): void {
-    if(column == this.sortCriteria) {
+    if (column == this.sortCriteria) {
       this.sortOrder = (this.sortOrder == "desc") ? "asc" : "desc";
     }
     this.sortCriteria = column;

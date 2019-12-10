@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/model/product.class';
-import { JsonResponse } from 'src/app/model/json-response';
 import { ProductService } from 'src/app/service/product.service';
 import { BaseComponent } from '../../base/base/base.component';
 import { SystemService } from 'src/app/service/system.service';

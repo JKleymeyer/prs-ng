@@ -14,37 +14,36 @@ import { SystemService } from 'src/app/service/system.service';
 })
 export class RequestEditComponent implements OnInit {
   title: string = "Request Edit";
-  user: User [] = [];
+  user: User[] = [];
   request: Request = new Request();
-  id:number = 0;
+  id: number = 0;
 
   constructor(private requestSvc: RequestService,
     private userSvc: UserService,
     private router: Router,
     private route: ActivatedRoute,
-    private loc : Location,
+    private loc: Location,
     protected sysSvc: SystemService) { }
 
   ngOnInit() {
-    this.route.params.subscribe(parms=> this.id = parms['id']);
-    this. requestSvc.get(this.id).subscribe(jr=>{
-      this.request=jr.data as Request;
+    this.route.params.subscribe(parms => this.id = parms['id']);
+    this.requestSvc.get(this.id).subscribe(jr => {
+      this.request = jr.data as Request;
     });
-    this.userSvc.list().subscribe(jr =>{
+    this.userSvc.list().subscribe(jr => {
       this.user = jr.data as User[];
     });
   }
   update(): void {
     this.requestSvc.update(this.request).subscribe(jresp => {
-      console.log(this.request);
       this.router.navigateByUrl("/requests/list");
     });
   }
-  backClicked(){
+  backClicked() {
     this.loc.back();
   }
 
-  compUser(a: User, b: User): boolean{
+  compUser(a: User, b: User): boolean {
     return a && b && a.id === b.id;
   }
 

@@ -47,7 +47,7 @@ export class RequestLinesComponent extends BaseComponent implements OnInit {
       this.getLineItem();
     });
   }
-  submitForReview(){
+  submitForReview() {
     this.requestSvc.submitRequest(this.request).subscribe(jresp => {
       this.router.navigateByUrl("/requests/list");
     });

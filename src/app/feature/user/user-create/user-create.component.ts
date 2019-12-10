@@ -22,12 +22,12 @@ export class UserCreateComponent implements OnInit {
   }
 
   save(): void {
-    this.userSvc.save(this.user).subscribe(jr=>{
+    this.userSvc.save(this.user).subscribe(jr => {
       this.router.navigateByUrl("/user/list");
     });
   }
 
-  backClicked(){
+  backClicked() {
     this.loc.back();
   }
 

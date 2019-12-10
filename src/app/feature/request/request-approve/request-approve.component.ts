@@ -24,8 +24,8 @@ export class RequestApproveComponent extends BaseComponent implements OnInit {
     protected sysSvc: SystemService,
     private lineItemSvc: LineItemService,
     private router: Router) {
-      super (sysSvc)
-     }
+    super(sysSvc)
+  }
 
   ngOnInit() {
     super.ngOnInit();
@@ -39,15 +39,15 @@ export class RequestApproveComponent extends BaseComponent implements OnInit {
     });
   }
 
-  approve(){
-      this.requestSvc.requestApprove(this.request).subscribe(jresp => {
-        this.router.navigateByUrl("/requests/review");
-      });
+  approve() {
+    this.requestSvc.requestApprove(this.request).subscribe(jresp => {
+      this.router.navigateByUrl("/requests/review");
+    });
   }
-  reject(){
+  reject() {
     this.requestSvc.requestReject(this.request).subscribe(jresp => {
       this.router.navigateByUrl("/requests/review");
     });
-}
+  }
 
 }

@@ -30,7 +30,6 @@ export class UserLoginComponent extends BaseComponent implements OnInit {
     this.sysSvc.loggedInUser = null;
   }
   login() {
-    console.log("login called for user:", this.user);
     this.userSvc.login(this.user)
       .subscribe(jr => {
         if (jr.errors == null) {
@@ -39,7 +38,6 @@ export class UserLoginComponent extends BaseComponent implements OnInit {
             this.message = "Invalid Username/Password combo.  Retry";
           }
           else {
-            // should be g2g!
             this.user = jr.data as User;
             this.sysSvc.loggedInUser = this.user;
             //good login, navigate to home/welcome page

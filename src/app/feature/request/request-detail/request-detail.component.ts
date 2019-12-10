@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/model/user.class';
 import { Request } from 'src/app/model/request.class';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UserService } from 'src/app/service/user.service';
 import { RequestService } from 'src/app/service/request.service';
 import { JsonResponse } from 'src/app/model/json-response';
 
@@ -13,7 +11,7 @@ import { JsonResponse } from 'src/app/model/json-response';
 })
 export class RequestDetailComponent implements OnInit {
   title: string = "Request Detail";
-  request: Request = new Request ();
+  request: Request = new Request();
   id: number = 0;
   jr: JsonResponse;
 
@@ -23,13 +21,13 @@ export class RequestDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(parms => this.id = parms['id']);
-    this.requestSvc.get(this.id).subscribe(jr =>{
+    this.requestSvc.get(this.id).subscribe(jr => {
       this.request = jr.data as Request;
     });
   }
 
-  delete(){
-    this.requestSvc.delete(this.id).subscribe(jr =>{
+  delete() {
+    this.requestSvc.delete(this.id).subscribe(jr => {
       this.router.navigateByUrl("requests/list")
     });
   }

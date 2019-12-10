@@ -4,9 +4,6 @@ import { JsonResponse } from 'src/app/model/json-response';
 import { RequestService } from 'src/app/service/request.service';
 import { SystemService } from 'src/app/service/system.service';
 import { BaseComponent } from '../../base/base/base.component';
-import { Router, ActivatedRoute } from '@angular/router';
-import { User } from 'src/app/model/user.class';
-import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-request-review',
@@ -20,8 +17,7 @@ export class RequestReviewComponent extends BaseComponent implements OnInit {
   jr: JsonResponse; 
 
   constructor(private requestSvc: RequestService,
-    protected sysSvc:SystemService,
-    private route: ActivatedRoute) {
+    protected sysSvc:SystemService) {
       super(sysSvc)
      }
 

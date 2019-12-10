@@ -9,9 +9,9 @@ import { SystemService } from 'src/app/service/system.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent extends BaseComponent implements OnInit {
-  menuItems : MenuItem [] = [];
+  menuItems: MenuItem[] = [];
 
-  constructor(protected sysSvc:SystemService) {
+  constructor(protected sysSvc: SystemService) {
     super(sysSvc);
   }
 
