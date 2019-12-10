@@ -1,11 +1,12 @@
 <app-menu></app-menu>
 <div class='component-content'>
     <div class='lefthalf'>
-        <span class='component-title'>{{title}} </span>
+        <span class="page-title font-weight-bold font-italic">{{title}} </span>
         <span> | <a routerLink="/requests/list">Return to list...</a></span>
     </div>
 </div>
 <p *ngIf='!request'>Loading...</p>
+<span class="component-title">{{title3}} </span>
 <table *ngIf='request' class="table table-striped">
     <tr>
         <th><a>Id</a></th>
@@ -59,4 +60,4 @@
     </tbody>
 </table>
 <br>
-<span><button (click)="submitForReview()" class="btn btn-sm btn-primary">Submit For Review</button></span>
+<span><button (click)="submitForReview()">Submit For Review</button></span>

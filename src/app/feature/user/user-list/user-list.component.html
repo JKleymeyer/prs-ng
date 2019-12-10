@@ -10,7 +10,7 @@
 <p *ngIf='!users'>Loading...</p>
 <table *ngIf='users' class="table table-striped">
     <tr>
-        <th><a (click)="sortBy('id')">Id</a></th>
+        <th *ngIf="isReviewer || isAdmin"><a (click)="sortBy('id')">Id</a></th>
         <th><a (click)="sortBy('userName')">User Name</a></th>
         <th *ngIf='isAdmin'><a (click)="sortBy('password')">Password</a></th>
         <th><a (click)="sortBy('firstName')">First Name</a></th>
@@ -23,7 +23,7 @@
     </tr>
     <tbody>
         <tr *ngFor="let u of users | sort:sortCriteria:sortOrder">
-            <td>{{u.id}}</td>
+            <td *ngIf="isReviewer || isAdmin">{{u.id}}</td>
             <td>{{u.userName}}</td>
             <td *ngIf='isAdmin'>{{u.password}}</td>
             <td>{{u.firstName}}</td>

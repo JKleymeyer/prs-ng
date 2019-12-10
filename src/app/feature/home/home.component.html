@@ -1,0 +1,14 @@
+<body>
+    <div class="background" style="background-image: url('../../../assets/logo.png');">
+        <div class="title">
+            <p>{{title + " " +this.loggedInUser.firstName}}!</p>
+            <p><a routerLink="/requests/list"><button class="button">Requests List</button></a>
+                |
+                <a routerLink="/requests/create"><button class="button">New Request</button></a>
+                |
+                <a routerLink="/users/list"><button class="button">Enter Site</button></a>
+                |
+                <a routerLink="/requests/review"><button class="button">Requests Review</button></a></p>
+        </div>
+    </div>
+</body>

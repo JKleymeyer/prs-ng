@@ -15,6 +15,7 @@ import { LineItemService } from 'src/app/service/line-item.service';
 export class RequestLinesComponent extends BaseComponent implements OnInit {
   title: string = "Request List";
   title2: string = "Line Items";
+  title3: string = "Request";
   request: Request = new Request;
   lineItem: LineItem[] = [];
   id: number = 0;

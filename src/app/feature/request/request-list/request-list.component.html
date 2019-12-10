@@ -10,7 +10,6 @@
 <p *ngIf='!request'>Loading...</p>
 <table *ngIf= 'request' class="table table-striped">
     <tr>
-        <th><a (click)="sortBy('id')">Id</a></th>
         <th>User</th>
         <th><a (click)="sortBy('description')">Description</a></th>
         <th><a (click)="sortBy('justification')">Justification</a></th>
@@ -24,7 +23,6 @@
     </tr>
     <tbody>
         <tr *ngFor="let r of request | sort:sortCriteria:sortOrder">
-            <td>{{r.id}}</td>
             <td>{{r.user.firstName}} {{r.user.lastName}}</td>
             <td>{{r.description}}</td>
             <td>{{r.justification}}</td>
@@ -34,14 +32,14 @@
             <td>{{r.total | currency}}</td>
             <td>{{r.submittedDate}}</td>
             <td>{{r.reasonForRejection}}</td>
-            <td><a routerLink='/requests/detail/{{r.id}}'><img src='assets/details.png' width='20' height='20'
+            <td><div class="buttons"><a routerLink='/requests/detail/{{r.id}}'><img src='assets/details.png' width='20' height='20'
                         title='Detail'></a>
                 |
                 <a routerLink='/requests/edit/{{r.id}}'><img src='assets/pencil-icon.png' width='20' height='20'
                         title='Edit'></a>
                 |
                 <a routerLink='/requests/request-lines/{{r.id}}'><img src='assets/lines.png' width='20' height='20'
-                    title='Line Items'></a>
+                    title='Line Items'></a></div>
             </td>
         </tr>
     </tbody>

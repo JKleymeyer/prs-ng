@@ -32,11 +32,11 @@
             <td>{{v.zip}}</td>
             <td>{{v.phoneNumber}}</td>
             <td>{{v.email}}</td>
-            <td *ngIf='isAdmin || isReviewer'><a routerLink='/vendors/detail/{{v.id}}'><img src='assets/details.png' width='20' height='20'
+            <td *ngIf='isAdmin || isReviewer'><div><a routerLink='/vendors/detail/{{v.id}}'><img src='assets/details.png' width='20' height='20'
                         title='Detail'></a>
                 |
                 <a routerLink='/vendors/edit/{{v.id}}'><img src='assets/pencil-icon.png' width='20' height='20'
-                        title='Edit'></a>
+                        title='Edit'></a></div>
             </td>
         </tr>
     </tbody>
